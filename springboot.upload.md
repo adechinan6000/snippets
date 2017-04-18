@@ -4,7 +4,7 @@
 ```java
 @Controller
 public class UploadingController {
-	public static final String uploadingdir = "pictures"; // same level as src folder
+	public static final String uploadingdir = "uploads"; // same level as src folder
 
 	@RequestMapping("/")
 	public String uploading(Model model) {
