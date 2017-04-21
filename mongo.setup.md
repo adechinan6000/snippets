@@ -1,11 +1,14 @@
-# Starting
+# Mongo setup
+
+## create: C:\Program Files\MongoDB\Server\3.4mongod.cfg
+
+
+## Add this inside it:
 
 ```bash
-net start MongoDB
-```
-
-# Stoping
-
-```bash
-net stop MongoDB
+systemLog:
+    destination: file
+    path: C:\Program Files\MongoDB\Server\3.4\data\log\mongod.log
+storage:
+    dbPath: C:\Program Files\MongoDB\Server\3.4\data\db
 ```
