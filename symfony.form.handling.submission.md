@@ -1,19 +1,19 @@
 # Handling form submission
 
 ```php
+use AppBundle\Entity\Task;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @Route("/product/new", name="app_product_new")
+ */
 public function newAction(Request $request)
 {
     // just setup a fresh $task object (remove the dummy data)
     $task = new Task();
 
-    $form = $this->createFormBuilder($task)
-        ->add('task', TextType::class)
-        ->add('dueDate', DateType::class)
-        ->add('save', SubmitType::class, array('label' => 'Create Task'))
-        ->getForm();
-
+    $form = $this->createForm(TaskType::class, $task);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {

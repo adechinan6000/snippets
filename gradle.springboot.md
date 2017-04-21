@@ -1,4 +1,4 @@
-```java
+```bash
 
 buildscript {
 	ext {

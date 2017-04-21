@@ -1,6 +1,6 @@
 # Controller
 
-```java
+```bash
 @RestController
 public class DepartmentController {
 

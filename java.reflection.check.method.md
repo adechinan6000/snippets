@@ -1,6 +1,6 @@
 ## Checking existance of method
 
-```java
+```bash
 Class a = Class.forName("yourClassName");
 Method[] m = a.getMethods();
 List<Method> data = Arrays.asList(m);

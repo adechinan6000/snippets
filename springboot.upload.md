@@ -1,7 +1,7 @@
 # Uploading
 
 
-```java
+```bash
 @Controller
 public class UploadingController {
 	public static final String uploadingdir = "uploads"; // same level as src folder

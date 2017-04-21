@@ -1,6 +1,6 @@
 # Create object with parameters
 
-```java
+```bash
 try {
     Class cli = Class.forName("Person");
     // constructor of person class take a string and and integer as param so:

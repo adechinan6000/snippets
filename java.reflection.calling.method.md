@@ -1,6 +1,6 @@
 # Calling methods on object
 
-```java
+```bash
 try {
     Class<Person> personClass = Person.class;
     // person class has setName method with take a string as param so:

@@ -5,7 +5,7 @@
 - create messages_es.properties file
 - make WebConfiguration java file
 
-```java
+```bash
 @Configuration
 public class WebConfiguration extends WebMvcConfigurerAdapter {
 	@Bean
@@ -36,7 +36,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 	}
 ```
 - call it
-```java
+```bash
 http://localhost:8080/?lang=es
 ```
 

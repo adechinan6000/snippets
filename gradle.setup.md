@@ -1,6 +1,6 @@
 # Gradle setup
 
-```java
+```bash
 group 'com.adechinan600'
 version '1.0-SNAPSHOT'
 

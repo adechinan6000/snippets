@@ -1,6 +1,6 @@
 # Simple Controller
 
-```java
+```bash
 
 @RequestMapping(value = "/", method = RequestMethod.GET)
 public String show() {

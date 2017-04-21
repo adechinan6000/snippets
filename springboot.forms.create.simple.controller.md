@@ -1,6 +1,6 @@
 # Controller
 
-```java
+```bash
 @RequestMapping(value="/", method=RequestMethod.GET)
 public String index(Post post) {
 	return "index";

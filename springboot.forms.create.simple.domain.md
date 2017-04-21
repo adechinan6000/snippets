@@ -1,5 +1,5 @@
 # Domain
-```java
+```bash
 public class Post {
 	@Size(min=4, max=35)
 	private String title;

@@ -1,6 +1,6 @@
 # Checking existance of class
 
-```java
+```bash
 try {
      Class cls = Class.forName("yourClassName"); // or "package1.Test"
 } catch (Exception e) {

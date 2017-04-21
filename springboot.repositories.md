@@ -1,7 +1,7 @@
 # Repositories
 
 
-```java
+```bash
 
 package sample.repositories;
 import java.util.List;

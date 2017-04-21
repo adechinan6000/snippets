@@ -1,6 +1,6 @@
 # Create object simple
 
-```java
+```bash
 try {
 Class cli = Class.forName("Person"); 
 Object o = cli.newInstance();

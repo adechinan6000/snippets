@@ -1,6 +1,6 @@
 # Domains
 
-```java
+```bash
 
 package sample.domains;
 

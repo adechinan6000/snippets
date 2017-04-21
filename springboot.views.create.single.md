@@ -1,6 +1,6 @@
 # Create single data
 
-```java
+```bash
 @RequestMapping("/")
 public String hello(Model model) {
     model.addAttribute("message", "Hello from the controller");

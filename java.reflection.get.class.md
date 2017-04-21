@@ -1,6 +1,6 @@
 # Get class
 
-```java
+```bash
 try {
     Class<Person> personClass = Person.class;
 } catch (Exception e) {

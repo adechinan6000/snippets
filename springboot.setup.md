@@ -1,6 +1,6 @@
 
 # Main
-```java
+```bash
 package sample;
 
 import org.springframework.beans.factory.annotation.Autowired;
