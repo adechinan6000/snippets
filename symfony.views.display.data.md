@@ -1,5 +1,12 @@
 # Display data
 
+* single
+```php
+{# comment: app/Resources/views/lucky/number.html.twig #}
+<h1>Your lucky number is {{ number }}</h1>
+```
+
+* loop
 ```php
 <ul>
     {% for user in users if user.active %}
@@ -10,8 +17,7 @@
 </ul>
 ```
 
-# Do not Escape data
-
+* no escaping
 ```php
 {{ article.body|raw }}
 ```

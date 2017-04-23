@@ -15,15 +15,24 @@ class LuckyController extends Controller
     public function numberAction()
     {
         $number = mt_rand(0, 100);
-
-        return $this->render('lucky/number.html.twig', array(
+        
+        // bundlename + folder + namefile
+        // default for controller name
+        return $this->render('MyBundle:Default:index.html.twig');
+        return $this->render('MyBundle:Default:number.html.twig', array(
             'number' => $number,
         ));
+        
+        // simple
+        // app/ressource/default/in...
+        // default for controller name
+        return $this->render('default/index.html.twig'); 
     }
 }
 ```
 
 # view twig code
+
 
 ```php
 

@@ -1,0 +1,10 @@
+# Symfony view conditional
+
+```bash
+{# mava/app/Resources/views/About/index.html.twig #}
+{% if name %}  
+    {{name}} is a member of our team.
+{% else %}  
+    mava is a web app for task management and team collaboration. <br/>
+{% endif %}
+```
