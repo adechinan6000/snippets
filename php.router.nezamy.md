@@ -46,6 +46,20 @@ $route->get('/', 'home@pages');
 $route->end();
 ```
 
+### Tuto3
+
+```bash
+namespace App;
+class homeController
+{
+    public function index()
+    {
+        # code...
+    }
+}
+$route->get('/', 'App\homeController@index');
+```
+
 ## Method routing
 
 ```bash
