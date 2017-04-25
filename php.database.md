@@ -12,7 +12,7 @@ $DB_HOST = 'localhost';
   echo $e->getMessage();
  }
 ---------------------------------------------------------------------------------------
-// Créer une table
+// CrÃ©er une table
 CREATE TABLE IF NOT EXISTS `tbl_categories` (
   `cat_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `cat_name` varchar(20) NOT NULL
@@ -22,18 +22,18 @@ CREATE TABLE IF NOT EXISTS `tbl_categories` (
 // handle table name dinamically
 $query = "SELECT HEAD,DESCRIPTION FROM $table_name ";
 
-// insérer
+// insÃ©rer
 $stmt = $DB_con->prepare("INSERT INTO nomdelatable (name, value) VALUES (?, ?)");
 $stmt->execute([$nom, $age])
 --------------------------------------------------------------------------------------------
 
-// récupérer et afficher si résultats beaucoup
+// rÃ©cupÃ©rer et afficher si rÃ©sultats beaucoup
 $stmt = $DB_con->prepare('SELECT * FROM users WHERE email = ? AND status=?');
 $stmt->execute([$email, $status]);
 
-  * teste s'il y a des réponses
+  * teste s'il y a des rÃ©ponses
   * on les convertit en tableau
-  * on appelle les clés pour afficher les valeurs
+  * on appelle les clÃ©s pour afficher les valeurs
 
 if($stmt->rowCount() > 0)
 	{
@@ -44,7 +44,7 @@ if($stmt->rowCount() > 0)
 			<?php echo $row['email']; ?> // ici pimg est le nom d'un champ de la table en bd
 ----------------------------------------------------------------------------------------------------------
 
-// récupérer et afficher si résultat unique
+// rÃ©cupÃ©rer et afficher si rÃ©sultat unique
 $stmt = $DB_con->prepare("SELECT user_name,user_email FROM users WHERE user_name=:uname OR user_email=:umail");
 $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
 $row=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -59,7 +59,7 @@ $stmt  = $DB_con->prepare("SELECT * FROM table WHERE name LIKE ?");
 $stmt->execute([$search]);
 ---------------------------------------------------------------------------------------------------------
 
-// mise à jour
+// mise Ã  jour
 $stmt = $DB_con->prepare("UPDATE users SET name = ? WHERE id = ?");
 $stmt->execute([$nom, $age])
 -----------------------------------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ $stmt->execute([$search]); // ASC: du plus petit au plus grand; DESC: inverse
 $stmt2  = $DB_con->prepare("SELECT MIN(price) FROM products"); // SELECT MIN(column_name) FROM table_name;
 $stmt2->execute();
 $min = $stmt2->fetchColumn();
-echo $min // déjà convertit en int
+echo $min // dÃ©jÃ  convertit en int
 --------------------------------------------------------------------------------------------------------
 
 // jointure
@@ -106,6 +106,18 @@ SELECT tbl_a.column1 , tbl_a.column2
        tbl_b.column1 , tbl_b.column2
 FROM   tbl_a INNER JOIN tbl_b
 ON     tbl_a.commonfield=tbl_b.commonfield
+
+$res=mysql_query("SELECT c.* , p.* FROM tbl_categories c,tbl_products p WHERE c.cat_id=p.cat_id");
+while($row=mysql_fetch_array($res))
+{
+ ?>
+    <tr>
+    <td><p><?php echo $row['product_id']; ?></p></td>
+    <td><p><?php echo $row['product_name']; ?></p></td>
+    <td><p><?php echo $row['cat_name']; ?></p></td>
+    </tr>
+    <?php
+}
 ---------------------------------------------------------------
 
 

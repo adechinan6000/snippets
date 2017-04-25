@@ -27,3 +27,12 @@ title.setText(myString);
 if (sharedPreferences.contains("cle_string") && sharedPreferences.contains("cle_string2")) {}
 
 ```
+
+## delete
+
+```bash
+
+editor.clear();
+editor.commit();
+
+```
