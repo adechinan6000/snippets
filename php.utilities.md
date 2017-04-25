@@ -14,8 +14,26 @@ include $_SERVER['DOCUMENT_ROOT']."/nambiwe/backend/dbconfig.php"; // nambiwe es
 echo utf8_encode($row['catname'])
 -------------------------------------------------------
 
-// DEFINE CONSTANT
-define('DB_SERVER','localhost');
+// DEFINE ET CONSTANT
+define("CONSTANT", "Bonjour le monde."); // echo CONSTANT; // affiche "Bonjour le monde."
+
+// Fonctione depuis PHP 7
+define('ANIMALS', array(
+    'dog',
+    'cat',
+    'bird'
+)); //echo ANIMALS[1]; // outputs "cat"
+// Fonctione depuis PHP 7
+define("DB", [
+    "DB_HOST_NAME" => "localhost",
+    "DB_USER_NAME" => "root",
+    "DB_PASSWORD" => "password",
+    "DB_DATABASE" => "db_example"
+]);
+
+// Fonctionne depuis PHP 5.6.0
+const BONO = array('chien' => 'lue', 'chat'=> 'la', 'oiseaux'=>'yu');
+//echo ANIMALS[1]; // affiche "chat"
 ----------------------------------------------
 
 // CONCATENATION
