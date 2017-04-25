@@ -22,7 +22,7 @@ else
 }
 http://www.monsite.com/bonjour.php?nom=Dupont&prenom=Jean   ici les variables sont nom et prenom et leur contenu Dupont et jean
 <a href="bonjour.php?nom=Dupont&amp;prenom=Jean">Dis-moi bonjour !</a> // dans le code html remplacer & par &amp
-$_GET['nom'] // permet de récupérer
+$_GET['nom'] // permet de rÃ©cupÃ©rer
 isset($_GET['nom']) && !empty($_GET['nom'])// tester si la variable nom existe et si elle contient une valeur
 ------------------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ else
 <option value="choix3">Choix 3</option>
 <option value="choix4">Choix 4</option>
 </select>
- $_POST['choix'] correspondra à ce qui aura été coché: ex choix1
+ $_POST['choix'] correspondra Ã  ce qui aura Ã©tÃ© cochÃ©: ex choix1
 **********************************
 <form action="checkbox-form.php" method="post">
     Do you need wheelchair access?
@@ -68,24 +68,44 @@ $_POST['frites']
 *******************************************
 <input type="hidden" name="pseudo" value="Mateo21" />
 $_POST['pseudo'] contiendra Mateo21
+*****************************************************
+<form method="post" action="value.php">
+                        <select name="flower[ ]" multiple>
+                                <option value="flower">FLOWER</option>
+                                <option value="rose">ROSE</option>
+                                <option value="lilly">LILLY</option>
+                                <option value="jasmine">JASMINE</option>
+                                <option value="lotus">LOTUS</option>
+                                <option value="tulips">TULIPS</option>
+                        </select>
+                        <input type="submit" name="submit" value=Submit>
+                </form>
+                
+<?php
+foreach ($_POST['flower'] as $names)
+{
+        print "You are selected $names<br/>";
+}
+
+?>                
 ----------------------------------------------------------------------------------------
 
 
 // ENVOYER UN FORMULAIRE A LA PAGE LUI MEME :
-* placer en début de fichier :
+* placer en dÃ©but de fichier :
 
-if(isset($_POST['envoyer'])) {   // tester si le bouton envoyer a été appuyé
+if(isset($_POST['envoyer'])) {   // tester si le bouton envoyer a Ã©tÃ© appuyÃ©
 		// suite
 }
 
-* s'assurer de la présence de l'attribut "method" et supprimer l'attribut "action" de la balise form:
+* s'assurer de la prÃ©sence de l'attribut "method" et supprimer l'attribut "action" de la balise form:
 <form method="post" enctype="multipart/form-data" class="">
 
-* gestion des erreurs et succès :
+* gestion des erreurs et succÃ©s :
 $errMSG = "Svp entrez le nom du produit.";
-$successMSG = "Le produit a été bien inséré dans la base de données...";
+$successMSG = "Le produit a Ã©tÃ© bien insÃ©rÃ© dans la base de donnÃ©es...";
 
-* afficher les messages n'importes où :
+* afficher les messages n'importes oÃ© :
  <?php
 	if(isset($errMSG)){
 			?>
@@ -138,21 +158,21 @@ Formulaire d'envoi de fichier :<br />
 </form>
 
 <?php
-// Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
+// Testons si le fichier a bien Ã©tÃ© envoyÃ© et s'il n'y a pas d'erreur
 if (isset($_FILES['monfichier']) AND $_FILES['monfichier']['error'] == 0)
 {
 // Testons si le fichier n'est pas trop gros
 if ($_FILES['monfichier']['size'] <= 1000000)
 	{
-// Testons si l'extension est autorisée
+// Testons si l'extension est autorisÃ©e
 $infosfichier = pathinfo($_FILES['monfichier']['name']);
 $extension_upload = $infosfichier['extension'];
 $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 if (in_array($extension_upload, $extensions_autorisees))
 {
-// On peut valider le fichier et le stocker définitivement
+// On peut valider le fichier et le stocker dÃ©finitivement
 move_uploaded_file($_FILES['monfichier']['tmp_name'], 'uploads/' . basename($_FILES['monfichier']['name']));
-echo "L'envoi a bien été effectué !".$_POST['nom'];
+echo "L'envoi a bien Ã©tÃ© effectuÃ© !".$_POST['nom'];
 }
 }
 }
@@ -160,39 +180,39 @@ echo "L'envoi a bien été effectué !".$_POST['nom'];
 
 // UPLOAD AVEC RETAILLAGE D'IMAGE
 <?php
-// Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
+// Testons si le fichier a bien Ã©tÃ© envoyÃ© et s'il n'y a pas d'erreur
 if (isset($_FILES['monfichier']) AND $_FILES['monfichier']['error'] == 0)
 {
 // Testons si le fichier n'est pas trop gros
 if ($_FILES['monfichier']['size'] <= 1000000)
 	{
-// Testons si l'extension est autorisée
+// Testons si l'extension est autorisÃ©e
 $infosfichier = pathinfo($_FILES['monfichier']['name']);
 $extension_upload = $infosfichier['extension'];
 $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 if (in_array($extension_upload, $extensions_autorisees))
 {
-// On peut valider le fichier et le stocker définitivement
+// On peut valider le fichier et le stocker dÃ©finitivement
 move_uploaded_file($_FILES['monfichier']['tmp_name'], 'uploads/' . basename($_FILES['monfichier']['name']));
 
 if ($extension_upload == 'jpg') {
 	
-// Création de l'image réduite
+// CrÃ©ation de l'image rÃ©duite
 $source = imagecreatefromjpeg('uploads/' . basename($_FILES['monfichier']['name'])); // La photo est la source
-$destination = imagecreatetruecolor(200, 150); // On crée la miniature vide
+$destination = imagecreatetruecolor(200, 150); // On crÃ©e la miniature vide
 // Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
 $largeur_source = imagesx($source);
 $hauteur_source = imagesy($source);
 $largeur_destination = imagesx($destination);
 $hauteur_destination = imagesy($destination);
-// On crée la miniature
+// On crÃ©e la miniature
 imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination,$hauteur_destination, $largeur_source, $hauteur_source);
 // On enregistre la miniature sous le nom voulu
 imagejpeg($destination, 'uploads/uploadsbit/' . basename($_FILES['monfichier']['name']));
 	
 }
 
-echo "L'envoi a bien été effectué !".$_POST['nom'];
+echo "L'envoi a bien Ã©tÃ© effectuÃ© !".$_POST['nom'];
 }
 }
 }
