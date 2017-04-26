@@ -1,6 +1,9 @@
 # Controller
 
 ```bash
+@Controller
+public class User {
+
 @RequestMapping(value="/", method=RequestMethod.GET)
 public String index(Post post) {
 	return "index";
@@ -14,5 +17,6 @@ public String addNewPost(@Valid Post post, BindingResult bindingResult, Model mo
 	model.addAttribute("title", post.getTitle());
 	model.addAttribute("content", post.getContent());
 	return "result";
+}
 }
 ```
